@@ -3,12 +3,14 @@
 exports[`should matchshot 1`] = `
 <DocumentFragment>
   <div
+    class="Box"
     style="width: 200px; height: 200px; background-color: blue;"
   >
-    <button>
+    <button
+      class="Box-deleteBtn"
+    >
       X
     </button>
-    Box
   </div>
 </DocumentFragment>
 `;
