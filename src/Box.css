@@ -1,0 +1,17 @@
+.Box {
+    display: inline-block;
+    text-align: start;
+    border-radius: 10px;
+}
+
+.Box-deleteBtn {
+    margin: 0;
+    border: none;
+    background: none;
+}
+
+.Box-deleteBtn:hover {
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 5px;
+}
