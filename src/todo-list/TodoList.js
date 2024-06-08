@@ -12,33 +12,61 @@ const TodoList = () => {
         { id: uuid(), completed: false, task: "Mow lawn" },
         { id: uuid(), completed: false, task: "Water flowers" },
     ]
-    const [todos, setTodos] = useState(exampleTodos);
+    const [todos, setTodos] = useState(
+        localStorage.getItem('todos') ? 
+        JSON.parse(localStorage.getItem('todos')) :
+        exampleTodos
+    );
+
+    // localStorage helper functions
+    const saveToLocalStorage = (updatedTodos) => {
+        const payload = JSON.stringify(updatedTodos);
+        localStorage.setItem('todos', payload);
+    }
+    
     const addTodo = (task) => {
-        setTodos([
+        const updatedTodos = [
             ...todos.map(todo => ({...todo})),
             {id: uuid(), completed: false, task: task}
-        ]);
+        ];
+        setTodos(updatedTodos);
+        saveToLocalStorage(updatedTodos);
     };
     const deleteTodo = (id) => {
-        setTodos([
-            ...todos.filter(todo => todo.id !== id)
-        ]);
+        const updatedTodos = [...todos.filter(todo => todo.id !== id)];
+        setTodos(updatedTodos);
+        saveToLocalStorage(updatedTodos);
     };
     const editTodo = (id, newTask) => {
-        setTodos([
-            ...todos.map(todo => todo.id === id ? {...todo, task: newTask} : todo)
-        ]);
+        const updatedTodos = [
+            ...todos.map(todo => 
+                todo.id === id 
+                ? {...todo, task: newTask} 
+                : todo
+            )];
+        setTodos(updatedTodos);
+        saveToLocalStorage(updatedTodos);
     };
     const completeTodo = (id) => {
-        setTodos([
-            ...todos.map(todo => todo.id === id ? {...todo, completed: !todo.completed} : todo)
-        ]);
+        const updatedTodos = [
+            ...todos.map(todo => 
+                todo.id === id 
+                ? {...todo, completed: !todo.completed} 
+                : todo
+            )];
+        setTodos(updatedTodos);
+        saveToLocalStorage(updatedTodos);
     };
+    const resetTodos = () => {
+        setTodos(exampleTodos);
+        localStorage.removeItem("todos");
+    }
     
   return (
     <div className='TodoList'>
         <h1>Todo</h1>
         <NewTodoForm addTodo={addTodo} />
+        <button className='TodoList-resetBtn' onClick={resetTodos}>Reset Todos</button>
         <hr className='TodoList-divider'></hr>
         <ul className='TodoList-ul'>
             {todos.map(({ id, task, completed }) => (

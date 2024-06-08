@@ -7,6 +7,14 @@
     padding-bottom: 20px;
 }
 
+.TodoList-resetBtn {
+    background-color: red;
+    color: white;
+    border-radius: 4px;
+    padding: 5px;
+    margin-top: 10px;
+}
+
 .TodoList-divider {
     margin: 10px 30px;
 }
