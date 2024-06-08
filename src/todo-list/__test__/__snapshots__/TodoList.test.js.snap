@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="TodoList"
+  >
+    <h1>
+      Todo
+    </h1>
+    <form
+      class="NewTodoForm"
+    >
+      <label
+        for="task"
+      >
+        Description: 
+      </label>
+      <input
+        id="task"
+        name="task"
+        placeholder="Grab milk... etc."
+        type="text"
+        value=""
+      />
+      <button>
+        Add Task
+      </button>
+    </form>
+    <button
+      class="TodoList-resetBtn"
+    >
+      Reset Todos
+    </button>
+    <hr
+      class="TodoList-divider"
+    />
+    <ul
+      class="TodoList-ul"
+    >
+      <li
+        style="text-decoration: line-through;"
+      >
+        Task: Walk dog
+        <button
+          class="Todo-completeBtn"
+        >
+          Mark as completed
+        </button>
+        <button
+          class="Todo-editBtn"
+        >
+          Edit
+        </button>
+        <button
+          class="Todo-deleteBtn"
+        >
+          <span>
+            ☒
+          </span>
+        </button>
+      </li>
+      <li>
+        Task: Mow lawn
+        <button
+          class="Todo-completeBtn"
+        >
+          Mark as completed
+        </button>
+        <button
+          class="Todo-editBtn"
+        >
+          Edit
+        </button>
+        <button
+          class="Todo-deleteBtn"
+        >
+          <span>
+            ☒
+          </span>
+        </button>
+      </li>
+      <li>
+        Task: Water flowers
+        <button
+          class="Todo-completeBtn"
+        >
+          Mark as completed
+        </button>
+        <button
+          class="Todo-editBtn"
+        >
+          Edit
+        </button>
+        <button
+          class="Todo-deleteBtn"
+        >
+          <span>
+            ☒
+          </span>
+        </button>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;

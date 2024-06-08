@@ -3,7 +3,17 @@
 exports[`should match snapshot 1`] = `
 <DocumentFragment>
   <li>
-    Task: Test Task 
+    Task: Test Task
+    <button
+      class="Todo-completeBtn"
+    >
+      Mark as completed
+    </button>
+    <button
+      class="Todo-editBtn"
+    >
+      Edit
+    </button>
     <button
       class="Todo-deleteBtn"
     >
