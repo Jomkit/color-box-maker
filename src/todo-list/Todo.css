@@ -1,6 +1,30 @@
-.Todo-deleteBtn {
+button {
     background: none;
     border: none;
     cursor: pointer;
+}
+
+.Todo-completeBtn {
+    text-decoration: underline;
+    color: hsl(0, 0%, 45%);
+}
+
+.Todo-completeBtn:hover {
+    color: hsl(0, 0%, 28%);
+
+}
+
+.Todo-editBtn {
+    text-decoration: underline;
+    margin: 5px;
+    padding: 3px;
+}
+
+.Todo-editBtn:hover {
+    background: lightblue;
+    border-radius: 3px;
+}
+
+.Todo-deleteBtn {
     color: red;
 }

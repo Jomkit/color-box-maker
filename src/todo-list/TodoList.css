@@ -10,3 +10,10 @@
 .TodoList-divider {
     margin: 10px 30px;
 }
+
+.TodoList-ul {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: start;
+    
+}

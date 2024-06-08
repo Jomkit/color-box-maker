@@ -8,20 +8,30 @@ import NewTodoForm from './NewTodoForm';
 
 const TodoList = () => {
     const exampleTodos = [
-        { id: uuid(), task: "Walk dog" },
-        { id: uuid(), task: "Mow lawn" },
-        { id: uuid(), task: "Water flowers" },
+        { id: uuid(), completed: true, task: "Walk dog" },
+        { id: uuid(), completed: false, task: "Mow lawn" },
+        { id: uuid(), completed: false, task: "Water flowers" },
     ]
     const [todos, setTodos] = useState(exampleTodos);
     const addTodo = (task) => {
         setTodos([
             ...todos.map(todo => ({...todo})),
-            {id: uuid(), task: task}
+            {id: uuid(), completed: false, task: task}
         ]);
     };
     const deleteTodo = (id) => {
         setTodos([
             ...todos.filter(todo => todo.id !== id)
+        ]);
+    };
+    const editTodo = (id, newTask) => {
+        setTodos([
+            ...todos.map(todo => todo.id === id ? {...todo, task: newTask} : todo)
+        ]);
+    };
+    const completeTodo = (id) => {
+        setTodos([
+            ...todos.map(todo => todo.id === id ? {...todo, completed: !todo.completed} : todo)
         ]);
     };
     
@@ -30,8 +40,18 @@ const TodoList = () => {
         <h1>Todo</h1>
         <NewTodoForm addTodo={addTodo} />
         <hr className='TodoList-divider'></hr>
-        <ul>
-            {todos.map(({ id, task }) => (<Todo key={id} task={task} deleteTodo={(e) => deleteTodo(id)} />))}
+        <ul className='TodoList-ul'>
+            {todos.map(({ id, task, completed }) => (
+                <Todo 
+                key={id}
+                 id={id} 
+                 task={task} 
+                 completed={completed} 
+                 deleteTodo={() => deleteTodo(id)} 
+                 editTodo={editTodo} 
+                 completeTodo={() => completeTodo(id)}
+                />
+            ))}
         </ul>
     </div>
   )
